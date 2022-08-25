@@ -1,0 +1,46 @@
+Урок математики
+Даны по 10-балльной шкале оценки по математике трех учеников. Напишите программу, которая выводит множество оценок, имеющихся у учеников, которые встречаются не более, чем у двух из указанных учеников.
+
+Формат входных данных
+На вход программе подаются оценки трех учеников, разделенные символом пробела (оценки каждого ученика на отдельной строке).
+
+Формат выходных данных
+Программа должна вывести множество оценок в порядке возрастания на одной строке, разделенных пробелами, в соответствии с условием задачи.
+
+Примечание. Оценка ученика находится в диапазоне от 0 до 10 включительно.
+
+
+# put your python code here
+k = input().split()
+l = input().split()
+m = input().split()
+
+k = [int(k[i]) for i in range(len(k))]
+l = [int(l[i]) for i in range(len(l))]
+m = [int(m[i]) for i in range(len(m))]
+
+k = set(k)
+l = set(l)
+m = set(m)
+
+a = k.intersection(l)
+b = k.intersection(m)
+c = l.intersection(m)
+
+e = k.difference(l)
+f = k.difference(m)
+g = m.difference(l)
+h = m.difference(k)
+i = l.difference(k)
+j = l.difference(m)
+
+x = k & l & m
+d = a | b | c | e | f | g | h | i | j
+x = list(x)
+for i in range(len(x)):
+    d.remove(x[i])
+d = list(d)
+d.sort()
+print(*d)
+
+
